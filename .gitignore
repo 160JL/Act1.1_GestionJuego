@@ -1,0 +1,34 @@
+# Archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos y carpetas de configuración de IDEs (IntelliJ, Eclipse, VSCode)
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+
+# Carpetas de salida de compilación
+out/
+target/
+build/
+
+# Archivos compilados y empaquetados
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs y archivos temporales
+*.log
+hs_err_pid*
+
+# Archivos de dependencias locales (Gradle)
+.gradle/
+
+# Archivos de variables de entorno (¡Nunca subir secretos!)
+.env
