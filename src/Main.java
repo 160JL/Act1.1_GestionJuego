@@ -32,22 +32,22 @@ public class Main {
                 int anno = Integer.parseInt(sc.nextLine());
                 System.out.println("Introduce: Valoración");
                 int val = Integer.parseInt(sc.nextLine());
-                GestionDeVideojuegos.addJuego(nombre, genero, plataforma, anno, val);
+                //GestionDeVideojuegos.addJuego(nombre, genero, plataforma, anno, val);
                 break;
             case 2:
                 //GestionDeVideojuegos.showJuegos();
                 System.out.println("Introduce la ID del juego a eliminar:");
                 int id = Integer.parseInt(sc.nextLine());
-                GestionDeVideojuegos.delJuego(id);
+                //GestionDeVideojuegos.delJuego(id);
                 break;
             case 3:
                 menu2();
                 break;
             case 4:
-                GestionDeVideojuegos.showJuegos();
+                //GestionDeVideojuegos.showJuegos();
                 break;
             case 5:
-                GestionDeVideojuegos.mejorValorados();
+                //GestionDeVideojuegos.mejorValorados();
                 break;
             default:
                 System.out.println("Por favor, selecciona una opción válida");
