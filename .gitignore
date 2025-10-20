@@ -32,3 +32,5 @@ hs_err_pid*
 
 # Archivos de variables de entorno (¡Nunca subir secretos!)
 .env
+
+src/ConexionDB.java
