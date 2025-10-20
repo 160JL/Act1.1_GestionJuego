@@ -6,7 +6,7 @@ public class Videojuego {
     private int valoracion;
     private int ID;
 
-    public Videojuego() {
+    public Videojuego(String titulo, String genero, String plataforma, int year, int valoracion, int ID) {
         this.titulo = titulo;
         this.genero = genero;
         this.plataforma = plataforma;
@@ -61,5 +61,15 @@ public class Videojuego {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    @Override
+    public String toString() {
+        return ("Titulo: " + this.titulo
+        + " Genero: " + this.genero
+        + " Plataforma: " + this.plataforma
+        + " Year: " + this.year
+        + " Valoracion: " + this.valoracion
+        + " ID: " + this.ID);
     }
 }
