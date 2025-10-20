@@ -1,13 +1,17 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GestionDeVideojuegos {
     /**
      * @param parametro el parametro (titulo, genero, plataforma) del juego que se quiero buscar
      * @param opc la opcion a buscar (titulo, plataforma, genero)
      */
-    public void buscarJuego(String parametro, int opc) {
+    static List<Videojuego> videojuegos = new ArrayList<>();
+
+    public static void buscarJuego(String parametro, int opc) {
         PreparedStatement statement;
         ResultSet rs;
 
@@ -20,10 +24,13 @@ public class GestionDeVideojuegos {
                     rs = statement.executeQuery();
 
                     while (rs.next()) {
-                        System.out.printf("*** %s ***\n- Genero: %s\n- Plataforma: %s\n- Año de Lanzamiento: %s\n- Valoración: %s\n\n",
-                                rs.getString("titulo"), rs.getString("genero"), rs.getString("plataforma"),
-                                rs.getString("anio"), rs.getString("valoracion"));
+                        Videojuego videojuego = new Videojuego(rs.getString("titulo"), rs.getString("genero"), rs.getString("plataforma"),
+                                rs.getInt("anio"), rs.getInt("valoracion"), rs.getInt("id"));
+
+                        videojuegos.add(videojuego);
                     }
+
+                    videojuegos.forEach(System.out::println);
                     return;
 
                 case 2:
@@ -33,10 +40,13 @@ public class GestionDeVideojuegos {
                     rs = statement.executeQuery();
 
                     while (rs.next()) {
-                        System.out.printf("*** %s ***\n- Genero: %s\n- Plataforma: %s\n- Año de Lanzamiento: %s\n- Valoración: %s\n\n",
-                                rs.getString("titulo"), rs.getString("genero"), rs.getString("plataforma"),
-                                rs.getString("anio"), rs.getString("valoracion"));
+                        Videojuego videojuego = new Videojuego(rs.getString("titulo"), rs.getString("genero"), rs.getString("plataforma"),
+                                rs.getInt("anio"), rs.getInt("valoracion"), rs.getInt("id"));
+
+                        videojuegos.add(videojuego);
                     }
+
+                    videojuegos.forEach(System.out::println);
                     return;
 
                 case 3:
@@ -46,10 +56,13 @@ public class GestionDeVideojuegos {
                     rs = statement.executeQuery();
 
                     while (rs.next()) {
-                        System.out.printf("*** %s ***\n- Genero: %s\n- Plataforma: %s\n- Año de Lanzamiento: %s\n- Valoración: %s\n\n",
-                                rs.getString("titulo"), rs.getString("genero"), rs.getString("plataforma"),
-                                rs.getString("anio"), rs.getString("valoracion"));
+                        Videojuego videojuego = new Videojuego(rs.getString("titulo"), rs.getString("genero"), rs.getString("plataforma"),
+                                rs.getInt("anio"), rs.getInt("valoracion"), rs.getInt("id"));
+
+                        videojuegos.add(videojuego);
                     }
+
+                    videojuegos.forEach(System.out::println);
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
