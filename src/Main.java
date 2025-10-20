@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -44,7 +45,11 @@ public class Main {
                 menu2();
                 break;
             case 4:
-                //GestionDeVideojuegos.showJuegos();
+                try {
+                    GestionDeVideojuegos.showJuegos();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case 5:
                 //GestionDeVideojuegos.mejorValorados();

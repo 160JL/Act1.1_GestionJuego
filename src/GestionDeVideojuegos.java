@@ -63,7 +63,7 @@ public class GestionDeVideojuegos {
     }
 
 
-    public void showJuegos() throws SQLException {
+    public static void showJuegos() throws SQLException {
         Connection conexion = ConexionDB.getConnection();
         System.out.println("Lista de juegos");
         ResultSet rs = conexion.prepareStatement("select * from videojuegos").executeQuery();
