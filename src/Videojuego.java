@@ -62,4 +62,14 @@ public class Videojuego {
     public void setID(int ID) {
         this.ID = ID;
     }
+
+    @Override
+    public String toString() {
+        return ("Titulo: " + this.titulo
+        + " Genero: " + this.genero
+        + " Plataforma: " + this.plataforma
+        + " Year: " + this.year
+        + " Valoracion: " + this.valoracion
+        + " ID: " + this.ID);
+    }
 }
