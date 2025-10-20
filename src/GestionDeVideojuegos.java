@@ -7,7 +7,7 @@ public class GestionDeVideojuegos {
      * @param parametro el parametro (titulo, genero, plataforma) del juego que se quiero buscar
      * @param opc la opcion a buscar (titulo, plataforma, genero)
      */
-    public void buscarJuego(String parametro, int opc) {
+    public static void buscarJuego(String parametro, int opc) {
         PreparedStatement statement;
         ResultSet rs;
 
