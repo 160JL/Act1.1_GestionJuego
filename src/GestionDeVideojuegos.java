@@ -2,7 +2,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GestionDeVideojuegos extends Videojuego {
+public class GestionDeVideojuegos {
     /**
      * @param parametro el parametro (titulo, genero, plataforma) del juego que se quiero buscar
      * @param opc la opcion a buscar (titulo, plataforma, genero)
