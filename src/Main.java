@@ -67,7 +67,7 @@ public class Main {
                     1. Titulo
                     2. Plataforma
                     3. Género
-                4. Volver al menu anterior
+                    4. Volver al menu anterior
                 """);
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
