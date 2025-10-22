@@ -19,6 +19,7 @@ public class Main {
                     3. Buscar juegos
                     4. Mostrar todos los juegos de la colección
                     5. Mostrar los juegos mejor valorados
+                    6. Mostrar juegos por order alfabético
                 """);
 
         switch (Integer.parseInt(sc.nextLine())) {
@@ -54,6 +55,9 @@ public class Main {
             case 5:
                 //GestionDeVideojuegos.mejorValorados();
                 break;
+            case 6:
+                GestionDeVideojuegos.ordenAlfabetico();
+                break;
             default:
                 System.out.println("Por favor, selecciona una opción válida");
                 menu();
@@ -67,23 +71,23 @@ public class Main {
                     1. Titulo
                     2. Plataforma
                     3. Género
-                4. Volver al menu anterior
+                    4. Volver al menu anterior
                 """);
         switch (Integer.parseInt(sc.nextLine())) {
             case 1:
                 System.out.println("Introduce: Titulo");
                 String titulo = sc.nextLine();
-                GestionDeVideojuegos.buscarJuego(titulo,1);
+                GestionDeVideojuegos.buscarJuego(titulo, 1);
                 break;
             case 2:
                 System.out.println("Introduce: Plataforma");
                 String plataforma = sc.nextLine();
-                GestionDeVideojuegos.buscarJuego(plataforma,2);
+                GestionDeVideojuegos.buscarJuego(plataforma, 2);
                 break;
             case 3:
                 System.out.println("Introduce: Género");
                 String genero = sc.nextLine();
-                GestionDeVideojuegos.buscarJuego(genero,3);
+                GestionDeVideojuegos.buscarJuego(genero, 3);
                 break;
             case 4:
                 menu();
