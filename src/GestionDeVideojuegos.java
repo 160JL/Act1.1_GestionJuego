@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class GestionDeVideojuegos {
     /**
@@ -72,5 +73,25 @@ public class GestionDeVideojuegos {
             videojuegos.add(juego);
         }
         videojuegos.forEach(System.out::println);
+    }
+
+    public static void delJuego() throws SQLException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce la ID del juego a eliminar: ");
+        int id = Integer.parseInt(sc.nextLine());
+
+        Connection conexion = ConexionDB.getConnection();
+        PreparedStatement statement = conexion.prepareStatement("delete from videojuegos where id = ?");
+        statement.setInt(1, id);
+
+        int filas = statement.executeUpdate();
+
+        if (filas > 0) {
+            System.out.println("Juego eliminado correctamente");
+        } else {
+            System.out.println("No existe ningún juego con esa ID");
+        }
+
+        statement.close();
     }
 }

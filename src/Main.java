@@ -36,12 +36,15 @@ public class Main {
                 //GestionDeVideojuegos.addJuego(nombre, genero, plataforma, anno, val);
                 break;
             case 2:
-                //GestionDeVideojuegos.showJuegos();
-                System.out.println("Introduce la ID del juego a eliminar:");
-                int id = Integer.parseInt(sc.nextLine());
-                //GestionDeVideojuegos.delJuego(id);
+                try {
+                    GestionDeVideojuegos.showJuegos();
+                    GestionDeVideojuegos.delJuego();
+                } catch (SQLException e) {
+                    System.out.println("Error eliminando el juego: " + e.getMessage());
+                }
                 break;
             case 3:
+                //GestionDeVideojuegos.showJuegos();
                 menu2();
                 break;
             case 4:
