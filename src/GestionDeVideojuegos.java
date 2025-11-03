@@ -11,7 +11,7 @@ public class GestionDeVideojuegos {
 
     /**
      * @param parametro el parametro (titulo, genero, plataforma) del juego que se quiero buscar
-     * @param opc       la opcion a buscar (titulo, plataforma, genero)
+     * @param opc la opcion a buscar (titulo, plataforma, genero)
      */
 
     public static void buscarJuego(String parametro, int opc) {
@@ -74,13 +74,13 @@ public class GestionDeVideojuegos {
     }
 
 
-    public static void showJuegos() {
+    public static void showJuegos(){
         try {
             Connection conexion = ConexionDB.getConnection();
             System.out.println("Lista de juegos");
             ResultSet rs = conexion.prepareStatement("select * from videojuegos").executeQuery();
             while (rs.next()) {
-                Videojuego juego = new Videojuego(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(1));
+                Videojuego juego = new Videojuego(rs.getString(2),rs.getString(3),rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(1));
                 videojuegos.add(juego);
             }
             videojuegos.forEach(System.out::println);
@@ -89,13 +89,13 @@ public class GestionDeVideojuegos {
         }
     }
 
-    public static void mejorValorados() {
+    public static void mejorValorados(){
         try {
             Connection conexion = ConexionDB.getConnection();
             System.out.println("Lista de juegos");
             ResultSet rs = conexion.prepareStatement("select * from videojuegos where valoracion > 9").executeQuery();
             while (rs.next()) {
-                Videojuego juego = new Videojuego(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(1));
+                Videojuego juego = new Videojuego(rs.getString(2),rs.getString(3),rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(1));
                 videojuegos.add(juego);
             }
             videojuegos.forEach(System.out::println);
