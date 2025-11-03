@@ -33,7 +33,7 @@ public class Main {
                 int anno = Integer.parseInt(sc.nextLine());
                 System.out.println("Introduce: Valoración");
                 int val = Integer.parseInt(sc.nextLine());
-                //GestionDeVideojuegos.addJuego(nombre, genero, plataforma, anno, val);
+                GestionDeVideojuegos.addJuego(nombre, genero, plataforma, anno, val);
                 break;
             case 2:
                 //GestionDeVideojuegos.showJuegos();

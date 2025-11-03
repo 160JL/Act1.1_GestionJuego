@@ -69,9 +69,39 @@ public class GestionDeVideojuegos {
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
-
     }
 
+    public static void addJuego(String titulo, String genero, String plataforma, int anio, int valoracion) {
+        PreparedStatement statement;
+        ResultSet rs;
+
+        try {
+            statement = ConexionDB.getConnection().prepareStatement("select * from videojuegos where lower(titulo) like ?");
+            statement.setString(1, titulo);
+
+            rs = statement.executeQuery();
+
+            while(rs.next()) {
+                if (rs.getString("titulo").equalsIgnoreCase(titulo)) {
+                    System.out.printf("\nEl juego '%s' ya existe en la base de datos\n", rs.getString("titulo"));
+                    return;
+                }
+            }
+
+            PreparedStatement addGame = ConexionDB.getConnection().prepareStatement("INSERT INTO videojuegos (titulo, genero, plataforma, anio, valoracion) VALUES (?,?, ?, ?, ?)");
+            addGame.setString(1, titulo);
+            addGame.setString(2, genero);
+            addGame.setString(3, plataforma);
+            addGame.setInt(4, anio);
+            addGame.setInt(5, valoracion);
+
+            addGame.executeUpdate();
+            System.out.println("Juego Insertado Correctamente");
+
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
 
     public static void showJuegos() throws SQLException {
         Connection conexion = ConexionDB.getConnection();
