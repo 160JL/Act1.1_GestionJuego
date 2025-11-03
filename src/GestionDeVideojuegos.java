@@ -74,34 +74,62 @@ public class GestionDeVideojuegos {
     }
 
 
-    public static void showJuegos() throws SQLException {
-        Connection conexion = ConexionDB.getConnection();
-        System.out.println("Lista de juegos");
-        ResultSet rs = conexion.prepareStatement("select * from videojuegos").executeQuery();
-        while (rs.next()) {
-            Videojuego juego = new Videojuego(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(1));
-            videojuegos.add(juego);
+    public static void showJuegos() {
+        try {
+            Connection conexion = ConexionDB.getConnection();
+            System.out.println("Lista de juegos");
+            ResultSet rs = conexion.prepareStatement("select * from videojuegos").executeQuery();
+            while (rs.next()) {
+                Videojuego juego = new Videojuego(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(1));
+                videojuegos.add(juego);
+            }
+            videojuegos.forEach(System.out::println);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        videojuegos.forEach(System.out::println);
     }
 
-    public static void delJuego() throws SQLException {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Introduce la ID del juego a eliminar: ");
-        int id = Integer.parseInt(sc.nextLine());
-
-        Connection conexion = ConexionDB.getConnection();
-        PreparedStatement statement = conexion.prepareStatement("delete from videojuegos where id = ?");
-        statement.setInt(1, id);
-
-        int filas = statement.executeUpdate();
-
-        if (filas > 0) {
-            System.out.println("Juego eliminado correctamente");
-        } else {
-            System.out.println("No existe ningún juego con esa ID");
+    public static void mejorValorados() {
+        try {
+            Connection conexion = ConexionDB.getConnection();
+            System.out.println("Lista de juegos");
+            ResultSet rs = conexion.prepareStatement("select * from videojuegos where valoracion > 9").executeQuery();
+            while (rs.next()) {
+                Videojuego juego = new Videojuego(rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(1));
+                videojuegos.add(juego);
+            }
+            videojuegos.forEach(System.out::println);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-
-        statement.close();
     }
+
+
+    public static void delJuego(){
+        try {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Introduce la ID del juego a eliminar: ");
+            int id = Integer.parseInt(sc.nextLine());
+
+            Connection conexion = ConexionDB.getConnection();
+            PreparedStatement statement = conexion.prepareStatement("delete from videojuegos where id = ?");
+            statement.setInt(1, id);
+
+            int filas = statement.executeUpdate();
+
+            if (filas > 0) {
+                System.out.println("Juego eliminado correctamente");
+            } else {
+                System.out.println("No existe ningún juego con esa ID");
+            }
+
+            statement.close();
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

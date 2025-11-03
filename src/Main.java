@@ -36,26 +36,18 @@ public class Main {
                 //GestionDeVideojuegos.addJuego(nombre, genero, plataforma, anno, val);
                 break;
             case 2:
-                try {
                     GestionDeVideojuegos.showJuegos();
                     GestionDeVideojuegos.delJuego();
-                } catch (SQLException e) {
-                    System.out.println("Error eliminando el juego: " + e.getMessage());
-                }
                 break;
             case 3:
                 //GestionDeVideojuegos.showJuegos();
                 menu2();
                 break;
             case 4:
-                try {
-                    GestionDeVideojuegos.showJuegos();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
+                GestionDeVideojuegos.showJuegos();
                 break;
             case 5:
-                //GestionDeVideojuegos.mejorValorados();
+                GestionDeVideojuegos.mejorValorados();
                 break;
             default:
                 System.out.println("Por favor, selecciona una opción válida");
@@ -76,17 +68,17 @@ public class Main {
             case 1:
                 System.out.println("Introduce: Titulo");
                 String titulo = sc.nextLine();
-                GestionDeVideojuegos.buscarJuego(titulo,1);
+                GestionDeVideojuegos.buscarJuego(titulo, 1);
                 break;
             case 2:
                 System.out.println("Introduce: Plataforma");
                 String plataforma = sc.nextLine();
-                GestionDeVideojuegos.buscarJuego(plataforma,2);
+                GestionDeVideojuegos.buscarJuego(plataforma, 2);
                 break;
             case 3:
                 System.out.println("Introduce: Género");
                 String genero = sc.nextLine();
-                GestionDeVideojuegos.buscarJuego(genero,3);
+                GestionDeVideojuegos.buscarJuego(genero, 3);
                 break;
             case 4:
                 menu();
