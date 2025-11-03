@@ -65,11 +65,11 @@ public class Videojuego {
 
     @Override
     public String toString() {
-        return ("\n Título: " + this.titulo
-        + "\n Género: " + this.genero
+        return ("\n Titulo: " + this.titulo
+        + "\n Genero: " + this.genero
         + "\n Plataforma: " + this.plataforma
-        + "\n Año: " + this.year
-        + "\n Valoración: " + this.valoracion
+        + "\n Year: " + this.year
+        + "\n Valoracion: " + this.valoracion
         + "\n ID: " + this.ID);
     }
 }
